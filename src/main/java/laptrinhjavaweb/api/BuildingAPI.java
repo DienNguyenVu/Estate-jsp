@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.codehaus.jackson.map.ObjectMapper;
@@ -15,7 +16,7 @@ import laptrinhjavaweb.service.impl.BuildingService;
 
 import java.io.IOException;
 @WebServlet(urlPatterns = { "/api-admin-user" })
-//@WebService(urlPatterns = { "/api-admin-user" })
+
 public class BuildingAPI extends HttpServlet {
 	private IBuildingService buildingService;
 
@@ -24,15 +25,17 @@ public class BuildingAPI extends HttpServlet {
 		
 	}
 
-	protected void doPost (HttpServlet request,HttpServletResponse response) throws ServletException, IOException
+	protected void doPost (HttpServletRequest request,HttpServletResponse response) 
+			throws ServletException, IOException
 	{
 	
 		ObjectMapper mapper =new ObjectMapper();
-		setCharacterEncoding("UTF-8");
+	
+		request.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
-		BuildingDTO buildingDTO= HttpUtil.of(request.getReader()).toModel(buildingDTO.class);
-		
-		mapper.writerValue(response.getOutputStream(), buildingDTO);
+		BuildingDTO buildingDTO= HttpUtil.of(request.getReader()).toModel(BuildingAPI.class);
+
+		mapper.writeValue(response.getOutputStream(), buildingDTO);
 		
 	}
 }
