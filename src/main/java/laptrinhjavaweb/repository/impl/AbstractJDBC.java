@@ -1,6 +1,5 @@
 package laptrinhjavaweb.repository.impl;
 
-
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -459,30 +458,25 @@ public class AbstractJDBC<T> implements GenericJDBC<T> {
 	}
 
 	@Override
-	public List<T> findAll(Map<String, Object> properties,Pageble pageble, Object... where) {
+	public List<T> findAll(Map<String, Object> properties, Pageble pageble, Object... where) {
 
 		Connection conn = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
 		ResultSetMapper<T> resultSetMapper = new ResultSetMapper<>();
 
-		
-		
 		String sql = createSQLfindAll(properties);
 		if (where != null && where.length > 0) {
 			sql.append(where[0]);
 		}
-		if(pageble != null)
-		{
-			if(pageble.getOffset() != null && pageble.getLimit() != null )
-			{
-				sql.append("LIMIT "+pageble.getOffset()+","+pageble.getLimit()+"");
-				
+		if (pageble != null) {
+			if (pageble.getOffset() != null && pageble.getLimit() != null) {
+				sql.append("LIMIT " + pageble.getOffset() + "," + pageble.getLimit() + "");
+
 			}
-			if(pageble.getSorter() != null)
-			{	
-				Sorter sorter=pageble.getSorter();
-				sql.append("ORDER BY "+sorter.getSortName()+"" +sorter.getSortBy()+"");
+			if (pageble.getSorter() != null) {
+				Sorter sorter = pageble.getSorter();
+				sql.append("ORDER BY " + sorter.getSortName() + "" + sorter.getSortBy() + "");
 			}
 		}
 		try {
