@@ -16,27 +16,24 @@ import laptrinhjavaweb.service.impl.BuildingService;
 import laptrinhjavaweb.utils.HttpUtil;
 
 import java.io.IOException;
+
 @WebServlet(urlPatterns = { "/api-admin-user" })
 
 public class BuildingAPI extends HttpServlet {
 	private IBuildingService buildingService;
 
-	public BuildingAPI () {
-		buildingService=new BuildingService();
-		
+	public BuildingAPI() {
+		buildingService = new BuildingService();
+
 	}
 
-	protected void doPost (HttpServletRequest request,HttpServletResponse response) 
-			throws ServletException, IOException
-	{
-	
-		ObjectMapper mapper =new ObjectMapper();
-	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF-8");
-		response.setContentType("application/json");
-		BuildingDTO buildingDTO= HttpUtil.of(request.getReader()).toModel(BuildingAPI.class);
-
+		response.setContentType("applicati on/json");
+		BuildingDTO buildingDTO = HttpUtil.of(request.getReader()).toModel(BuildingDTO.class);
 		mapper.writeValue(response.getOutputStream(), buildingDTO);
-		
+
 	}
 }
