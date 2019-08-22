@@ -13,6 +13,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import laptrinhjavaweb.dto.BuildingDTO;
 import laptrinhjavaweb.service.IBuildingService;
 import laptrinhjavaweb.service.impl.BuildingService;
+import laptrinhjavaweb.utils.HttpUtil;
 
 import java.io.IOException;
 @WebServlet(urlPatterns = { "/api-admin-user" })

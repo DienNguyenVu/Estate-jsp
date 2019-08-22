@@ -1,0 +1,12 @@
+package laptrinhjavaweb.utils;
+
+import java.io.BufferedReader;
+
+public class HttpUtil {
+	public HttpUtil() {
+	
+	}
+	public static  HttpUtil of(BufferedReader reader) {
+		return new HttpUtil();
+	}
+}
