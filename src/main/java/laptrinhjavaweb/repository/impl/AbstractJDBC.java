@@ -465,25 +465,24 @@ public class AbstractJDBC<T> implements GenericJDBC<T> {
 		ResultSet resultSet = null;
 		ResultSetMapper<T> resultSetMapper = new ResultSetMapper<>();
 
-		String sql = createSQLfindAll(properties);
+		StringBuilder sql = createSQLfindAll(properties);
 		if (where != null && where.length > 0) {
-	//		sql.append(where[0]);
-
+			sql.append(where[0]);
 		}
 		if (pageble != null) {
 			if (pageble.getOffset() != null && pageble.getLimit() != null) {
-	//			sql.append("LIMIT " + pageble.getOffset() + "," + pageble.getLimit() + "");
+				sql.append("LIMIT " + pageble.getOffset() + "," + pageble.getLimit() + "");
 
 			}
 			if (pageble.getSorter() != null) {
 				Sorter sorter = pageble.getSorter();
-	//			sql.append("ORDER BY " + sorter.getSortName() + "" + sorter.getSortBy() + "");
+				sql.append("ORDER BY " + sorter.getSortName() + "" + sorter.getSortBy() + "");
 			}
 		}
 		try {
 			conn = getConnection();
 			statement = conn.createStatement();
-			resultSet = statement.executeQuery(sql);
+			resultSet = statement.executeQuery(sql.toString());
 			if (conn != null) {
 				return resultSetMapper.mapRow(resultSet, this.zClass);
 			}
@@ -509,7 +508,7 @@ public class AbstractJDBC<T> implements GenericJDBC<T> {
 		return null;
 	}
 
-	private String createSQLfindAll(Map<String, Object> properties) {
+	private StringBuilder createSQLfindAll(Map<String, Object> properties) {
 		String tableName = "";
 		if (zClass.isAnnotationPresent(Table.class)) {
 			Table table = zClass.getAnnotation(Table.class);
@@ -535,6 +534,6 @@ public class AbstractJDBC<T> implements GenericJDBC<T> {
 
 			}
 		}
-		return stringBuilder.toString();
+		return stringBuilder;
 	}
 }

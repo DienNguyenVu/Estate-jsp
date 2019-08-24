@@ -1,24 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ include file="/common/taglib.jsp"%>
+ <%-- <%@ include file="/common/taglib.jsp"%> --%> 
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<c:url value='/teamplate/admin/assets/js/ace-extra.min.js' />
-<link rel="stylesheet"
-	href="<c:url value='/teamplate/admin/assets/css/bootstrap.min.css'/>" />
-<link rel="stylesheet"
-	href="<c:url value='/teamplate/admin/assets/font-awesome/4.2.0/css/font-awesome.min.css'/>" />
-<link rel="stylesheet"
-	href="<c:url value='/teamplate/admin/assets/fonts/fonts.googleapis.com.css'/>" />
-<link rel="stylesheet"
-	href="<c:url value='/teamplate/admin/assets/css/ace.min.css'/>"
-	class="ace-main-stylesheet" id="main-ace-style" />
-<script
-	src="<c:url value='/teamplate/admin/assets/js/ace-extra.min.js'/>"></script>
+
+<link rel="stylesheet" href="<c:url value='/template/admin/css/bootstrap.min.css'/>" />
+<link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.2.0/css/font-awesome.min.css'/>" />
+<link rel="stylesheet" href="<c:url value='/template/admin/fonts/fonts.googleapis.com.css'/>" />
+<link rel="stylesheet" href="<c:url value='/template/admin/css/ace.min.css'/>" class="ace-main-stylesheet" id="main-ace-style" />
+<script src="<c:url value='/template/admin/js/ace-extra.min.js'/>"></script>
 </head>
 <body>
 	<!-- /header -->
@@ -51,27 +45,27 @@
 
 
 
-	<c:url value='/teamplate/admin/assets/js/ace.min.js' />
+
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/jquery.2.1.1.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/jquery.2.1.1.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/bootstrap.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/bootstrap.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/jquery-ui.custom.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/jquery-ui.custom.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/jquery.ui.touch-punch.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/jquery.ui.touch-punch.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/jquery.easypiechart.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/jquery.easypiechart.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/jquery.sparkline.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/jquery.sparkline.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/jquery.flot.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/jquery.flot.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/jquery.flot.pie.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/jquery.flot.pie.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/jquery.flot.resize.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/jquery.flot.resize.min.js'/>"></script>
 	<script
-		src="<c:url value='/teamplate/admin/assets/js/ace-elements.min.js'/>"></script>
-	<script src="<c:url value='/teamplate/admin/assets/js/ace.min.js'/>"></script>
+		src="<c:url value='/template/admin/js/ace-elements.min.js'/>"></script>
+	<script src="<c:url value='/template/admin/js/ace.min.js'/>"></script>
 </body>
 </html>
