@@ -467,16 +467,17 @@ public class AbstractJDBC<T> implements GenericJDBC<T> {
 
 		String sql = createSQLfindAll(properties);
 		if (where != null && where.length > 0) {
-			sql.append(where[0]);
+	//		sql.append(where[0]);
+
 		}
 		if (pageble != null) {
 			if (pageble.getOffset() != null && pageble.getLimit() != null) {
-				sql.append("LIMIT " + pageble.getOffset() + "," + pageble.getLimit() + "");
+	//			sql.append("LIMIT " + pageble.getOffset() + "," + pageble.getLimit() + "");
 
 			}
 			if (pageble.getSorter() != null) {
 				Sorter sorter = pageble.getSorter();
-				sql.append("ORDER BY " + sorter.getSortName() + "" + sorter.getSortBy() + "");
+	//			sql.append("ORDER BY " + sorter.getSortName() + "" + sorter.getSortBy() + "");
 			}
 		}
 		try {
@@ -502,7 +503,7 @@ public class AbstractJDBC<T> implements GenericJDBC<T> {
 				}
 
 			} catch (Exception e) {
-				// TODO: handle exception
+				System.out.println(e.getMessage());
 			}
 		}
 		return null;

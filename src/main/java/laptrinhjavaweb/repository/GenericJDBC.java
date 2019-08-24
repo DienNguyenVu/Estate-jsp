@@ -14,7 +14,6 @@ public interface GenericJDBC<T> {
 	Long insert(Object object);
 	Void update(Object object);
 	Void delete(Long id);
-	@SuppressWarnings("hiding")
 	<T> T findById(Long id);
 	List<T> findAll(Map<String,Object> properties,Pageble pageble,Object...where);
 }
