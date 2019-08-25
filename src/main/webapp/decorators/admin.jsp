@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
- <%-- <%@ include file="/common/taglib.jsp"%> --%> 
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="<c:url value='/template/admin/css/bootstrap.min.css'/>" />
@@ -16,7 +14,7 @@
 </head>
 <body>
 	<!-- /header -->
-	<%@ include file="/common/admin/header.jsp"%>
+	<%@ include file="/common/admin/header.jsp" %>
 	<!-- /end header -->
 
 	<!-- /.main-container -->
@@ -24,7 +22,9 @@
 		<script type="text/javascript">
 			try {
 				ace.settings.check('main-container', 'fixed')
-			} catch (e) {
+			} catch (e)
+			{
+				
 			}
 		</script>
 		<!-- /menu -->

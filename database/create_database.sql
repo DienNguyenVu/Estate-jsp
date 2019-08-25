@@ -63,11 +63,25 @@ create table user_role
 alter table user_role ADD CONSTRAINT fk_user_role foreign key (roleid) references role(id);
 alter table user_role ADD CONSTRAINT fk_userrole_role foreign key (userid) references user(id);
 
-create table assignment
+create table assignmentbuilding
 (
 	id bigint not null primary key auto_increment,
 	building_id bigint not null,
-	user_id bigint not null
+	staff_id bigint not null,
+	
 );
-alter table assignment ADD CONSTRAINT fk_assignment_user foreign key (roleid) references role(id);
-alter table assignment ADD CONSTRAINT fk_assignment_building foreign key (userid) references user(id);
+alter table assignmentbuilding ADD CONSTRAINT fk_assignment_user foreign key (staff_id) references role(id);
+alter table assignmentbuilding ADD CONSTRAINT fk_assignment_building foreign key (building_id) references user(id);
+
+create table rentarea
+(
+	id bigint not null primary key auto_increment,
+	building_id bigint not null,
+	value varchar(255) not null,
+	createddate timestamp null,
+	modifieddate timestamp null,
+	createdby varchar(255) null,
+	modifiedby varchar(255) null
+	
+);
+alter table rentarea add constraint fk_renarea buiding foreign key (buidling_id) references building(id);
