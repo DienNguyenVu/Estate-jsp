@@ -4,6 +4,7 @@ public class PageRequest implements Pageble{
 	private Integer page;
 	private Integer maxPageItem;
 	private Sorter sorter;
+	
 	public PageRequest(int page, int maxPageItem, Sorter sorter) {
 		this.maxPageItem=page;
 		this.page=page;
@@ -11,7 +12,6 @@ public class PageRequest implements Pageble{
 	}
 	@Override
 	public Integer getPage() {
-		// TODO Auto-generated method stub
 		return page;
 	}
 
@@ -25,7 +25,6 @@ public class PageRequest implements Pageble{
 
 	@Override
 	public Integer getLimit() {
-		// TODO Auto-generated method stub
 		return maxPageItem;
 	}
 	@Override
