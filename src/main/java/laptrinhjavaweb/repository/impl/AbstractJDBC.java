@@ -470,14 +470,15 @@ public class AbstractJDBC<T> implements GenericJDBC<T> {
 			sql.append(where[0]);
 		}
 		if (pageble != null) {
-			if (pageble.getOffset() != null && pageble.getLimit() != null) {
-				sql.append("LIMIT " + pageble.getOffset() + "," + pageble.getLimit() + "");
-
-			}
 			if (pageble.getSorter() != null) {
 				Sorter sorter = pageble.getSorter();
 				sql.append("ORDER BY " + sorter.getSortName() + "" + sorter.getSortBy() + "");
 			}
+			if (pageble.getOffset() != null && pageble.getLimit() != null) {
+				sql.append("LIMIT " + pageble.getOffset() + "," + pageble.getLimit() + "");
+
+			}
+			
 		}
 		try {
 			conn = getConnection();
@@ -527,7 +528,7 @@ public class AbstractJDBC<T> implements GenericJDBC<T> {
 			}
 			for (int il = 0; il < params.length; il++) {
 				if (value[il] instanceof String) {
-					stringBuilder.append("and LOWER(" + params[il] + ") LIKE'%" + value[il] + "%'");
+					stringBuilder.append("and LOWER(" + params[il] + ") LIKE'%" + value[il].toString().toLowerCase() + "%'");
 				} else if (value[il] instanceof Integer) {
 					stringBuilder.append("and LOWER(" + params[il] + ") = " + value[il] + "");
 				}
